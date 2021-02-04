@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap");
+@font-face {
+  font-family: "DevilBreeze";
+  src: local("DevilBreeze"), url(../fonts/DevilBreeze.ttf) format("opentype");
+}
+
+:root {
+  --textColor: #ffffff;
+  --background: #101010;
+  --greenClair: #65ab9f;
+  --greenFonce: #435552;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--textColor);
+  background-color: #101010;
+}
+
+.mainContainer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+h1 {
+  font-family: "DevilBreeze";
+  text-align: center;
+  font-size: 56px;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: center;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin-bottom: -30px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--greenClair);
+  text-transform: uppercase;
+}
+
+.containerPlayVolume {
+  background-image: url("/img/backgroundLecteur.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 168px;
+  height: 168px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttonPlay {
+  background: none;
+  border: none;
+  color: white;
+  width: 35px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.buttonPlay:focus {
+  outline: none;
+}
+
+input[type="range"].barVolume {
+  width: 50%;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin: 1.9px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type="range"].barVolume:focus {
+  outline: none;
+}
+
+input[type="range"].barVolume::-webkit-slider-runnable-track {
+  background: rgba(101, 171, 138, 0);
+  border: 1px solid #ffffff;
+  border-radius: 3.5px;
+  width: 100%;
+  height: 7.2px;
+  cursor: pointer;
+}
+
+input[type="range"].barVolume::-webkit-slider-thumb {
+  margin-top: -2.9px;
+  width: 11px;
+  height: 11px;
+  background: #ffffff;
+  border: 0;
+  border-radius: 11px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type="range"].barVolume::-moz-range-track {
+  background: rgba(101, 171, 138, 0);
+  border: 1px solid #ffffff;
+  border-radius: 3.5px;
+  width: 100%;
+  height: 7.2px;
+  cursor: pointer;
+}
+
+input[type="range"].barVolume::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  background: #ffffff;
+  border: 0;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+input[type="range"].barVolume::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 2.9px 0;
+  color: transparent;
+  width: 100%;
+  height: 7.2px;
+  cursor: pointer;
+}
+
+input[type="range"].barVolume::-ms-fill-lower {
+  background: #65ab8a;
+  border: 1px solid #ffffff;
+  border-radius: 7px;
+}
+
+input[type="range"].barVolume::-ms-fill-upper {
+  background: rgba(101, 171, 138, 0);
+  border: 1px solid #ffffff;
+  border-radius: 7px;
+}
+
+input[type="range"].barVolume::-ms-thumb {
+  width: 11px;
+  height: 11px;
+  background: #ffffff;
+  border: 0;
+  border-radius: 11px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type="range"].barVolume:focus::-ms-fill-lower {
+  background: rgba(101, 171, 138, 0);
+}
+
+input[type="range"].barVolume:focus::-ms-fill-upper {
+  background: #65ab8a;
+}
+
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type="range"].barVolume {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+.barTimeContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input[type="range"].durationBar {
+  margin: 25px 8px;
+  width: 700px;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input[type="range"].durationBar:focus {
+  outline: none;
+}
+
+input[type="range"].durationBar::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 138, 0);
+  border: 1px solid #65ab9f;
+  border-radius: 5.3px;
+  width: 100%;
+  height: 10.5px;
+  cursor: pointer;
+}
+
+input[type="range"].durationBar::-webkit-slider-thumb {
+  margin-top: -4.25px;
+  width: 17px;
+  height: 17px;
+  background: #65ab9f;
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+input[type="range"].durationBar::-moz-range-track {
+  background: rgba(255, 255, 138, 0);
+  border: 1px solid #65ab9f;
+  border-radius: 5.3px;
+  width: 100%;
+  height: 10.5px;
+  cursor: pointer;
+}
+
+input[type="range"].durationBar::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+  background: #65ab9f;
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+input[type="range"].durationBar::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 4.25px 0;
+  color: transparent;
+  width: 100%;
+  height: 10.5px;
+  cursor: pointer;
+}
+
+input[type="range"].durationBar::-ms-fill-lower {
+  background: #ffff8a;
+  border: 1px solid #65ab9f;
+  border-radius: 10.6px;
+}
+
+input[type="range"].durationBar::-ms-fill-upper {
+  background: rgba(255, 255, 138, 0);
+  border: 1px solid #65ab9f;
+  border-radius: 10.6px;
+}
+
+input[type="range"].durationBar::-ms-thumb {
+  width: 17px;
+  height: 17px;
+  background: #65ab9f;
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+input[type="range"].durationBar:focus::-ms-fill-lower {
+  background: rgba(255, 255, 138, 0);
+}
+
+input[type="range"].durationBar:focus::-ms-fill-upper {
+  background: #ffff8a;
+}
+
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align: auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type="range"].durationBar {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+.hexagoneContainer {
+  justify-self: flex-end;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: -43px;
+}
+
+.allHexa3Child,
+.allHexa4Child {
+  cursor: pointer;
+}
+
+.allHexa3Child path:nth-child(3) {
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+.allHexa3Child:hover path:nth-child(3) {
+  fill: var(--greenClair);
+}
+
+.allHexa4Child path:nth-child(4) {
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+.allHexa4Child:hover path:nth-child(4) {
+  fill: var(--greenClair);
+}
+
+canvas {
+  position: absolute;
+  z-index: -1;
+}
+
+.musicTitleHexa {
+  position: absolute;
+  bottom: 0;
+  font-size: 80px;
+  color: #65ab9f;
+  opacity: 0.7;
+}
+/*# sourceMappingURL=style.css.map */
