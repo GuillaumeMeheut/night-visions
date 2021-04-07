@@ -53,6 +53,7 @@ let C = {
   },
 
   createVisualizer: function () {
+    let AudioContext = window.AudioContext || window.webkitAudioContext;
     V.context = new AudioContext();
 
     let ctx = V.canvas.getContext("2d");
@@ -101,6 +102,9 @@ let V = {
   textDuration: undefined,
   musicTitleHexa: undefined,
 
+  arrow1: undefined,
+  card: undefined,
+
   audio: undefined,
   context: undefined,
   src: undefined,
@@ -115,7 +119,16 @@ let V = {
     V.textDuration = document.querySelector(".duration");
     V.musicTitleHexa = document.querySelector(".musicTitleHexa");
 
+    V.arrow = document.querySelectorAll(".arrow");
+    V.card = document.querySelector(".card");
+
     V.canvas = document.querySelector("canvas");
+
+    V.arrow.forEach((arrow) => {
+      arrow.addEventListener("click", () => {
+        V.card.classList.toggle("is-flipped");
+      });
+    });
 
     for (let i = 1; i < V.hexagones.length; i++) {
       V.hexagones[i].addEventListener("click", () => {
